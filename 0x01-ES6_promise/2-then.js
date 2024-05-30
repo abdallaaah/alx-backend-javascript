@@ -7,6 +7,6 @@ export default function handleResponseFromAPI(promise) {
         }
         return object;
     }).catch((error) => {
-       return 'fuccccccccccck'
+       return new Error()
     });
 }
