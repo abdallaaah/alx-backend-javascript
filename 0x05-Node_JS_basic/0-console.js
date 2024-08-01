@@ -2,6 +2,6 @@
 // function to simple write on the stdout
 
 function displayMessage(message){
-    process.stdout.write(message.toString() + '\n')
+    console.log(message)
 }
 module.exports = displayMessage;
