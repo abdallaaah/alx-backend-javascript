@@ -60,11 +60,11 @@ const app = http.createServer((req, res) => {
         res.write(Buffer.from(responseText));
       })
       .catch((error) => {
-        console.log(error)
-        var error_list = [];
-        error_list.push(error.toString());
-          var final_repsone = error_list.join('\n');
-          console.log(final_repsone)
+        if (error instanceof Error){
+          var final_error = error.message.toString()
+          responseParts.push(final_error)
+        }
+          var final_repsone = responseParts.join('\n');
           res.setHeader('Content-Type', 'text/plain');
           res.setHeader('Content-Length', final_repsone.length);
           res.statusCode = 200;
