@@ -65,7 +65,7 @@ const app = http.createServer((req, res) => {
           error.push(error.toString());
           final_repsone = error.join('\n');
           res.setHeader('Content-Type', 'text/plain');
-          res.setHeader('Content-Length', final_repsone.length());
+          res.setHeader('Content-Length', final_repsone.length);
           res.statusCode = 200;
           res.write(Buffer.from(final_repsone))
         }
