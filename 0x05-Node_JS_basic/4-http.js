@@ -1,9 +1,11 @@
 #!/usr/bin/node
-// Create a small HTTP server using Node.js
+// Create a small HTTP server using Node.js test
 
-const http = require('http');
+const app = require('http');
 
-http.createServer((req, res) => {
+app.createServer((req, res) => {
   res.write('Hello Holberton School!');
   res.end();
 }).listen(1245);
+
+module.exports = app
