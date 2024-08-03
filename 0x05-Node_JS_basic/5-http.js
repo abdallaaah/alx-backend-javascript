@@ -60,17 +60,15 @@ const app = http.createServer((req, res) => {
         res.write(Buffer.from(responseText));
       })
       .catch((error) => {
-        error = []
-        if (error instanceof Error){
-          error.push(error.toString());
-          final_repsone = error.join('\n');
+        console.log(error)
+        var error_list = [];
+        error_list.push(error.toString());
+          var final_repsone = error_list.join('\n');
+          console.log(final_repsone)
           res.setHeader('Content-Type', 'text/plain');
           res.setHeader('Content-Length', final_repsone.length);
           res.statusCode = 200;
           res.write(Buffer.from(final_repsone))
-        }
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end(error.message);
       });
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
