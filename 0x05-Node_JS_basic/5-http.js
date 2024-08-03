@@ -51,7 +51,7 @@ const app = http.createServer((req, res) => {
         responseParts.push(`Number of students: ${data["Number of students"]}`)
         for (const [key, value] of Object.entries(data)){
           if (key !== "Number of students")
-          responseParts.push(`Number of students in ${key}: ${value}`)
+          responseParts.push(`${key}: ${value}`)
         }
         const responseText = responseParts.join('\n');
         res.setHeader('Content-Type', 'text/plain');
